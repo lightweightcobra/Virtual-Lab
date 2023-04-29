@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cartesian to other Coordinates Converter</title>
+	<link rel="stylesheet" type="text/css" href="styleconvert.css">
+</head>
+<body>
+	<div class="container">
+	<h1>Cartesian to Cylindrical and Spherical Coordinates Converter</h1>
+	<form>
+		<label for="x">x:</label>
+		<input type="number" id="x" name="x"><br>
+
+		<label for="y">y:</label>
+		<input type="number" id="y" name="y"><br>
+
+		<label for="z">z:</label>
+		<input type="number" id="z" name="z"><br>
+
+		<button type="button" onclick="convertCartesianToCylindrical()">Cylindrical coordinates</button>
+
+		<button type="button" onclick="convertCartesianToSpherical()">Spherical Coordinate</button>
+
+	</form>
+
+	<div id="result"></div>
+	<br>
+	<div id="result1"></div>
+
+	<script src="index2.js"></script>
+	</div>
+
+	 
+	<div class="container">
+	<h1>Cylindrical to Spherical and Cartesian Coordinates Converter</h1>
+	<form>
+		<label for="rho">ρ:</label>
+		<input type="number" id="rho" name="rho"><br>
+
+		<label for="phi">φ:</label>
+		<input type="number" id="phi" name="phi"><br>
+
+		<label for="z">z:</label>
+		<input type="number" id="z" name="z"><br>
+
+		<button type="button" onclick="convertCylindricalToSpherical()">Convert to Spherical</button>
+		<button type="button" onclick="convertCylindricalToCartesian()">Convert to Cartesian</button>
+	</form>
+
+	<div id="spherical-result" class="text-center"></div>
+	<br>
+	<div id="cartesian-result" class="text-center"></div>
+
+	<script src="index3.js"></script>
+	</div>
+
+	<div class="container">
+		<h1>Spherical to Cylindrical and Cartesian Coordinates Converter</h1>
+	<form>
+		<label for="r">r:</label>
+		<input type="number" id="r" name="r"><br>
+
+		<label for="theta">θ:</label>
+		<input type="number" id="theta" name="theta"><br>
+
+		<label for="phi">φ:</label>
+		<input type="number" id="phi" name="phi"><br>
+
+		<button type="button" onclick="convertSphericalToCylindrical()">Convert to Cylindrical</button>
+		<button type="button" onclick="convertSphericalToCartesian()">Convert to Cartesian</button>
+	</form>
+
+	<div id="cylindrical-result" class="text-center"></div>
+	<div id="cartesian-result" class="text-center"></div>
+
+	<script src="index4.js"></script>
+	</div>
+</body>
+</html>

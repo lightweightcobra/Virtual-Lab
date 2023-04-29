@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Continuity Equation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      #input-form {
+        margin: 50px auto;
+        width: 50%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        border-radius: 5px;
+      }
+      input {
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,.1);
+      }
+      button {
+        display: block;
+        margin: 20px auto 0;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color .3s;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+      #result {
+        margin: 50px auto;
+        width: 50%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        border-radius: 5px;
+      }
+      #result p {
+        margin: 0 0 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Continuity Equation</h1>
+    <div id="input-form">
+      <label for="charge-density-function">Charge Density (as a function of time t):</label>
+      <input type="text" id="charge-density-function" name="charge-density-function">
+      <button onclick="calculate()">Calculate</button>
+    </div>
+    <div id="result">
+      <p id="result-equation"></p>
+      <p id="result-solution"></p>
+    </div>
+    <script>
+      function calculate() {
+        const chargeDensityFunction = document.getElementById("charge-density-function").value;
+        const resultEquation = "∇ · J = -∂ρ/∂t";
+        let currentDensity = 0;
+        let t = 0;
+        try {
+          eval(`const chargeDensity = ${chargeDensityFunction};`);
+          if (typeof chargeDensity === "function") {
+            currentDensity = -chargeDensity(t);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+        const resultSolution = `The current density (J) corresponding to the given charge density (ρ(t) = ${chargeDensityFunction}) at t = ${t} is J = ${currentDensity}.`;
+        document.getElementById("result-equation").innerHTML = resultEquation;
+        document.getElementById("result-solution").innerHTML = resultSolution;
+      }
+    </script>
+  </body>
+</html>
